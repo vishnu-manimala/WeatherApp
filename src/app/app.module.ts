@@ -9,19 +9,26 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { userReducer } from './store/app.reducer';
+import { UserComponent } from './views/user/user.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({appReducer : userReducer })
   ],
   providers: [
     provideAnimationsAsync()
